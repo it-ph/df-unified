@@ -1,0 +1,390 @@
+body {
+    font-size: .723rem;
+}
+
+.navbar-header {
+    background-color: #00599D !important;
+}
+
+.header-item.show {
+    background-color: #00599D !important;
+}
+
+.menu-title {
+    color: #fff !important;
+}
+
+.bg-primary {
+    background-color: #00599D !important;
+}
+
+.bg-primary.bg-soft {
+    background-color: rgba(0, 89, 157) !important;
+}
+
+.bg-danger {
+    background-color: #E3342F !important;
+}
+
+.text-primary {
+    color: #00599D !important;
+}
+
+.text-success {
+    color: #28B779 !important;
+}
+
+.bg-success {
+    background-color: #28B779 !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #00599D !important;
+    border-color: #00599D !important;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #00599D !important;
+    border-color: #00599D !important;
+    box-shadow: 0 0.20rem 0.50rem 0 rgba(0, 89, 157, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #E3342F !important;
+    border-color: #E3342F !important;
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #E3342F !important;
+    border-color: #E3342F !important;
+    box-shadow: 0 0.20rem 0.50rem 0 rgba(227, 52, 47, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn-warning {
+    color: #fff;
+    background-color: #FFC600 !important;
+    border-color: #FFC600 !important;
+}
+
+.btn-warning:hover {
+    color: #fff;
+    background-color: #FFC600 !important;
+    border-color: #FFC600 !important;
+    box-shadow: 0 0.20rem 0.50rem 0 rgba(255, 198, 0, .4);
+    transform: translateY(-3px);
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #28B779 !important;
+    border-color: #28B779 !important;
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #28B779 !important;
+    border-color: #28B779 !important;
+    box-shadow: 0 0.20rem 0.50rem 0 rgba(40, 183, 121, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #74788D !important;
+    border-color: #74788D !important;
+    box-shadow: 0 0.20rem 0.50rem 0 rgba(116, 120, 141, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn-sm {
+    padding: .16rem .4rem !important;
+}
+
+
+/* page title */
+
+.page-title {
+    color: #4B5A64;
+}
+
+.modal-confirm {
+    color: #4B5A64;
+}
+
+.custom-label {
+    color: #4B5A64 !important;
+}
+
+
+/* modal */
+
+.modal-header {
+    background: #00599D;
+}
+
+.modal-title {
+    color: #fff !important;
+}
+
+.modal-close {
+    color: #fff !important;
+}
+
+
+/* title - label */
+
+.title {
+    font-weight: bold;
+    color: #fff !important;
+    padding: 8px;
+    background-color: #00599D;
+}
+
+
+/* card border */
+
+.top-border {
+    border-top: 3px solid #D2D6DE !important;
+    border-radius: 4px !important;
+}
+
+
+/* required indicator */
+
+.important {
+    font-weight: bold;
+    color: red;
+}
+
+
+/* table */
+
+.table th {
+    background-color: #00599D;
+    color: #fff !important;
+}
+
+
+/* datatatble filter */
+
+
+/* div.dataTables_filter label {
+    margin-left: 8px !important;
+} */
+
+
+/* pagination links */
+
+.page-item.active .page-link {
+    background-color: #00599D;
+    border-color: #00599D;
+}
+
+.page-link {
+    color: #00599D;
+    padding: .2rem .60rem !important;
+}
+
+
+/* copy button */
+
+button.buttons-copy {
+    background-color: #00599D;
+    color: #fff;
+    border-color: #00599D;
+}
+
+button.buttons-copy:hover {
+    background-color: #00599D !important;
+    border-color: #00599D !important;
+}
+
+
+/* excel button */
+
+button.buttons-excel {
+    background-color: green;
+    color: #fff;
+    border-color: green;
+}
+
+button.buttons-excel:hover {
+    background-color: green !important;
+    border-color: green !important;
+}
+
+
+/* pdf button */
+
+button.buttons-pdf {
+    background-color: #E3342F;
+    color: #fff;
+    border-color: #E3342F;
+}
+
+button.buttons-pdf:hover {
+    background-color: #E3342F !important;
+    border-color: #E3342F !important;
+}
+
+
+/* collection button */
+
+
+/* button.buttons-collection {
+    background-color: #FFC600;
+    color: #fff;
+    border-color: #FFC600;
+}
+
+button.buttons-collection:hover {
+    background-color: #FFC600 !important;
+    border-color: #FFC600 !important;
+} */
+
+.dataTables_scrollBody {
+    margin-bottom: 10px !important;
+}
+
+
+/* fix for row containing a button dropdown causes vertical scrolling when scrollX is enabled */
+
+div.dataTables_scrollBody.dropdown-visible {
+    overflow: visible !important;
+}
+
+.table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before {
+    background-color: #00599D !important;
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th.dtr-control:before {
+    background-color: #E3342F !important;
+}
+
+.tdbreak {
+    word-break: break-all
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #00599D !important;
+    color: #fff;
+}
+
+.form-check-input:checked {
+    background-color: #00599D;
+    border-color: #00599D;
+}
+
+.dataTables_scrollBody thead tr[role="row"] {
+    visibility: collapse !important;
+}
+
+table.dataTable thead tr>.dtfc-fixed-left,
+table.dataTable thead tr>.dtfc-fixed-right,
+table.dataTable tfoot tr>.dtfc-fixed-left,
+table.dataTable tfoot tr>.dtfc-fixed-right {
+    background: #00599D;
+}
+
+.table-sm>:not(caption)>*>* {
+    padding: .2rem;
+}
+
+.page-title-box {
+    padding-bottom: 10px;
+}
+
+.ellipsis-menu {
+    cursor: pointer !important;
+}
+
+.d-menus {
+    transform: translate3d(-120px, 20px, 0px);
+}
+
+.roles-checklists {
+    padding: 5px;
+    border: 1px #CED4DA solid !important;
+    border-radius: 5px;
+}
+
+.badge-roles {
+    font-size: .70rem !important;
+}
+
+
+/* daterangepicker*/
+
+.datefilter {
+    background: #fff;
+    cursor: pointer;
+    padding: 8.5px 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.daterangepicker .ranges li.active {
+    background-color: #00599D !important;
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    background-color: #00599D !important;
+}
+
+
+/* dashboard */
+
+.d-title {
+    font-weight: 600 !important;
+    color: #4B5A64 !important;
+}
+
+.ihide {
+    display: none;
+}
+
+.client_hide {
+    display: none;
+}
+
+.edit-quality {
+    display: none;
+}
+
+div.dataTables_wrapper div.dataTables_processing {
+    color: #50A5F1 !important;
+    background-color: transparent !important;
+}
+
+.hide-column {
+    display: none;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.card-loading {
+    animation: blink 1.5s infinite;
+}
