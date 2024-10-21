@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') Job Logs Report @endsection
+@section('title') Task Logs Report @endsection
 
 @section('css')
     <!-- DataTables -->
@@ -15,7 +15,7 @@
 
     @component('components.breadcrumb')
         @slot('li_1') Reports @endslot
-        @slot('title') Job Log @endslot
+        @slot('title') Task Logs @endslot
     @endcomponent
 
     <div class="row">
@@ -49,14 +49,14 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Job Name</th>
+                                <th>Task Name</th>
                                 @if(in_array('admin',$user['roles']))<th>Client Name</th>@endif
                                 <th>Status</th>
                                 <th> <i class="fa fa-history"></i></th>
                                 <th>Site ID</th>
                                 <th>Platform</th>
-                                <th>Developer</th>
-                                <th>Developer</th>
+                                <th>Designer</th>
+                                <th>Designer</th>
                                 <th>Type of Request</th>
                                 <th>Num Pages</th>
                                 <th>SLA Agreed</th>
@@ -77,7 +77,7 @@
                                 <th>Image(s) provided by customer</th>
                                 <th>Num of new images used</th>
                                 <th>Shared Folder Location</th>
-                                <th>Developer Comments</th>
+                                <th>Designer Comments</th>
                                 <th>Internal Quality</th>
                                 <th>External Quality</th>
                                 <th>Comments for External Quality</th>

@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="jobHistoryModal">Job History</h5>
+                <h5 class="modal-title" id="jobHistoryModal">Task History</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -16,7 +16,7 @@
                                     <tr>
                                         <th class="text-center">Created at</th>
                                         <th class="text-center">Created by</th>
-                                        <th class="text-center">Job Name</th>
+                                        <th class="text-center">Task Name</th>
                                         <th class="text-center">Activity</th>
                                     </tr>
                                 </thead>

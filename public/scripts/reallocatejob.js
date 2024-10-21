@@ -150,17 +150,17 @@ const JOB = (() => {
             success: function(result) {
                 if (result.length > 0) {
                     $("#developer_id").select2({
-                        placeholder: '-- Select Developer --'
+                        placeholder: '-- Select Designer --'
                     });
-                    $('#developer_id').append('<option value="">' + '-- Select Developer --' + '</option>');
+                    $('#developer_id').append('<option value="">' + '-- Select Designer --' + '</option>');
                     $.each(result, function(index, value) {
                         $('#developer_id').append('<option value="' + value.id + '">' + value.full_name + '</option>');
                     });
                 } else {
                     $("#developer_id").select2({
-                        placeholder: '-- Select Developer --'
+                        placeholder: '-- Select Designer --'
                     });
-                    $('#developer_id').append('<option value="">' + '-- Select Developer --' + '</option>');
+                    $('#developer_id').append('<option value="">' + '-- Select Designer --' + '</option>');
                     $('#developer_id option[value=""]').prop('selected', true);
                 }
 

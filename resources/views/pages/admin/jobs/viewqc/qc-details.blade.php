@@ -14,7 +14,7 @@
                             <td class="col-sm-9">{{ $job['self_qc'] }}</td>
                         </tr>
                         <tr>
-                            <td class="col-sm-3 fw-bold">Developer Comments</td>
+                            <td class="col-sm-3 fw-bold">Designer Comments</td>
                             <td class="col-sm-9 tdbreak">{{ $job['audit_dev_comments'] }}</td>
                         </tr>
                         <tr>

@@ -6,7 +6,7 @@
                     <p class="fw-bold mb-1 text-primary">QC Feedback</p>
                     <table class="table table-bordered table-sm nowrap w-100">
                         <tr>
-                            <td class="col-sm-3 fw-bold">QC Auditor</td>
+                            <td class="col-sm-3 fw-bold">QC Proofreader</td>
                             <td class="col-sm-9">{{ $job['auditor'] }}</td>
                         </tr>
                         <tr>

@@ -18,7 +18,7 @@
 @section('content')
 
     @component('components.breadcrumb')
-        @slot('li_1') Job @endslot
+        @slot('li_1') Task @endslot
         @slot('title') Quality Check @endslot
     @endcomponent
 

@@ -44,9 +44,6 @@
                             </tr>
                         </thead>
                     </table>
-                    {{-- <div id="div-spinner" class="text-center mt-4 mb-4">
-                        <span id="loader" style="font-size: 16px"><i class="fa fa-spinner fa-spin"></i> Please wait...</span>
-                    </div> --}}
                 </div>
             </div>
         </div>

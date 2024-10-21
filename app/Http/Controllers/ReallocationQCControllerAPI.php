@@ -85,9 +85,9 @@ class ReallocationQCControllerAPI extends Controller
                 }))
                 ->addColumn('action', (function($value){
                     $action = auth()->user()->id == $value->auditor_id ?
-                        '<button type="button" class="btn btn-info btn-sm waves-effect waves-light" id="btn_release_'.$value->id.'" title="Release Job" onclick=JOB.release('.$value->id.')><i class="fa fa-share"></i></button>
-                        <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" id="btn_reallocate'.$value->id.'" title="Reallocate Job" onclick=JOB.show('.$value->id.')><i class="fa fa-handshake-o"></i></button>'
-                        : '<button type="button" class="btn btn-primary btn-sm waves-effect waves-light" id="btn_reallocate'.$value->id.'" title="Reallocate Job" onclick=JOB.show('.$value->id.')><i class="fa fa-handshake-o"></i></button>';
+                        '<button type="button" class="btn btn-info btn-sm waves-effect waves-light" id="btn_release_'.$value->id.'" title="Release Task" onclick=JOB.release('.$value->id.')><i class="fa fa-share"></i></button>
+                        <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" id="btn_reallocate'.$value->id.'" title="Reallocate Task" onclick=JOB.show('.$value->id.')><i class="fa fa-handshake-o"></i></button>'
+                        : '<button type="button" class="btn btn-primary btn-sm waves-effect waves-light" id="btn_reallocate'.$value->id.'" title="Reallocate Task" onclick=JOB.show('.$value->id.')><i class="fa fa-handshake-o"></i></button>';
                     return $action;
                 }))
                 ->rawColumns(

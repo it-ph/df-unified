@@ -26,18 +26,18 @@ class AuditLogExport implements FromArray, WithHeadings, WithChunkReading, WithM
     {
         $headings = [
             'ID',
-            'Job Name',
+            'Task Name',
             'Site ID',
             'Platform',
-            'Developer',
+            'Designer',
             'Type of Request',
             'Num of Pages',
             'Preview Link',
             'Self QC Performed',
-            'Developer Comment',
+            'Designer Comment',
             'Time Taken',
             'QC Round',
-            'QC Auditor',
+            'QC Proofreader',
             'QC Status',
             'Call For Rework',
             'Num of Times',
@@ -62,7 +62,7 @@ class AuditLogExport implements FromArray, WithHeadings, WithChunkReading, WithM
 
         return $headings;
     }
-    
+
     public function chunkSize(): int
     {
         return 200;

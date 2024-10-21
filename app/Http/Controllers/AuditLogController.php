@@ -38,7 +38,7 @@ class AuditLogController extends Controller
     /** AUDITOR */
     public function qualityCheck()
     {
-        $result = $this->successResponse('Jobs loaded successfully!');
+        $result = $this->successResponse('Tasks loaded successfully!');
         try
         {
             $result["data"] =  $this->service->loadPendingQCs();
@@ -53,7 +53,7 @@ class AuditLogController extends Controller
     public function pickJob($id)
     {
         $audit_log = AuditLog::findOrfail($id);
-        $result = $audit_log->auditor_id ? $this->successResponse('Job is already picked!.') : $result = $this->successResponse("Job picked successfully!");
+        $result = $audit_log->auditor_id ? $this->successResponse('Task is already picked!.') : $result = $this->successResponse("Task picked successfully!");
 
         try {
             $audit_log->update([
@@ -80,7 +80,7 @@ class AuditLogController extends Controller
             $created_by = auth()->user()->id;
             $job_id = $job->id;
             $by = auth()->user()->full_name;
-            $activity = "QC Job picked and started by ".$by. ', status set to Quality Check';
+            $activity = "QC Task picked and started by ".$by. ', status set to Quality Check';
             JobHistories::addNewHistory($client_id, $created_by, $job_id, $activity);
 
         } catch (\Throwable $th) {
@@ -92,7 +92,7 @@ class AuditLogController extends Controller
 
     public function releaseJob($id)
     {
-        $result = $this->successResponse("Job released successfully!");
+        $result = $this->successResponse("Task released successfully!");
         try {
             $audit_log = AuditLog::findOrfail($id);
             $audit_log->update([
@@ -111,7 +111,7 @@ class AuditLogController extends Controller
             $created_by = auth()->user()->id;
             $job_id = $audit_log->job_id;
             $by = auth()->user()->full_name;
-            $activity = "QC Job released by ".$by;
+            $activity = "QC Task released by ".$by;
             JobHistories::addNewHistory($client_id, $created_by, $job_id, $activity);
 
         } catch (\Throwable $th) {

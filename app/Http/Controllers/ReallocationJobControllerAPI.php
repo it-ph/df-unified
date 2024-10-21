@@ -112,7 +112,7 @@ class ReallocationJobControllerAPI extends Controller
                     return $status;
                 }))
                 ->addColumn('action', (function($value){
-                    return '<button type="button" class="btn btn-primary btn-sm waves-effect waves-light" id="btn_reallocate" title="Reallocate Job" onclick=JOB.show('.$value->id.')><i class="fa fa-handshake-o"></i></button>';
+                    return '<button type="button" class="btn btn-primary btn-sm waves-effect waves-light" id="btn_reallocate" title="Reallocate Task" onclick=JOB.show('.$value->id.')><i class="fa fa-handshake-o"></i></button>';
                 }))
                 ->escapeColumns([])
                 ->make(true);

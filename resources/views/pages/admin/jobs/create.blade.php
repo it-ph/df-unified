@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') Add Job @endsection
+@section('title') Add Task @endsection
 
 @section('css')
     <!-- DataTables -->
@@ -18,8 +18,8 @@
 @section('content')
 
     @component('components.breadcrumb')
-        @slot('li_1') Job @endslot
-        @slot('title') Add Job @endslot
+        @slot('li_1') Task @endslot
+        @slot('title') Add Task @endslot
     @endcomponent
 
     <div class="row">
@@ -51,9 +51,9 @@
                                 </div>
                                 <div class="form-group row mb-2">
                                     <input type="hidden" name="edit_id" id="edit_id">
-                                    <label for="name" class="col-sm-2 col-form-label fw-bold">Job Name <strong><span class="important">*</span></strong></label>
+                                    <label for="name" class="col-sm-2 col-form-label fw-bold">Task Name <strong><span class="important">*</span></strong></label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Job Name">
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Task Name">
                                         <label id="nameError" class="error" style="display:none"></label>
                                     </div>
                                 </div>
@@ -79,10 +79,10 @@
                                 </div>
 
                                 <div class="form-group row mb-2">
-                                    <label for="developer_id" class="col-sm-2 col-form-label fw-bold">Developer <strong><span class="important">*</span></strong></label>
+                                    <label for="developer_id" class="col-sm-2 col-form-label fw-bold">Designer <strong><span class="important">*</span></strong></label>
                                     <div class="col-sm-10">
                                         <select class="form-control select2" name="developer_id" id="developer_id"  style="width:100%;">
-                                            <option value=""disabled selected>-- Select Developer -- </option>
+                                            <option value=""disabled selected>-- Select Designer -- </option>
                                         </select>
                                         <label id="developer_idError" class="error" style="display:none"></label>
                                     </div>

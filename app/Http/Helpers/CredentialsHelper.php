@@ -52,7 +52,7 @@ class CredentialsHelper {
     {
         $developers = User::query()
             ->whereHas('theroles', function ($query) {
-                $query->where('name', 'developer');
+                $query->where('name', 'designer');
             })
             // ->developers()
             // ->isactive()
@@ -67,7 +67,7 @@ class CredentialsHelper {
     {
         $developers = User::query()
             ->whereHas('theroles', function ($query) {
-                $query->where('name', 'developer');
+                $query->where('name', 'designer');
             })
             ->where('client_id', $client_id)
             ->isactive()
@@ -82,7 +82,7 @@ class CredentialsHelper {
     {
         $developers = User::query()
             ->whereHas('theroles', function ($query) {
-                $query->where('name', 'developer');
+                $query->where('name', 'designer');
             })
             ->developers()
             ->select('id','first_name','last_name','email','client_id','status')
@@ -96,7 +96,7 @@ class CredentialsHelper {
     {
         $auditors = User::query()
             ->whereHas('theroles', function ($query) {
-                $query->where('name', 'auditor');
+                $query->where('name', 'proofreader');
             })
             // ->auditors()
             // ->isactive()
@@ -111,7 +111,7 @@ class CredentialsHelper {
     {
         $auditors = User::query()
             ->whereHas('theroles', function ($query) {
-                $query->where('name', 'auditor');
+                $query->where('name', 'proofreader');
             })
             ->auditors()
             ->select('id','first_name','last_name','email','client_id','last_login_at','status')
@@ -125,7 +125,7 @@ class CredentialsHelper {
     {
         $auditors = User::query()
             ->whereHas('theroles', function ($query) {
-                $query->where('name', 'auditor');
+                $query->where('name', 'proofreader');
             })
             ->where('client_id', $client_id)
             ->isactive()

@@ -56,7 +56,7 @@ class JobController extends GlobalVariableController
     /** PENDING JOBS */
     public function pendingJob()
     {
-        $result = $this->successResponse('Jobs loaded successfully!');
+        $result = $this->successResponse('Tasks loaded successfully!');
         try
         {
             $result["data"] =  $this->service->loadPendingJobs();
@@ -71,7 +71,7 @@ class JobController extends GlobalVariableController
     /** DEV */
     public function myJob()
     {
-        $result = $this->successResponse('Jobs loaded successfully!');
+        $result = $this->successResponse('Tasks loaded successfully!');
         try
         {
             $result["data"] =  $this->service->loadDevJobs();
@@ -97,7 +97,7 @@ class JobController extends GlobalVariableController
 
     public function startJob($id)
     {
-        $result = $this->successResponse("Job started successfully!");
+        $result = $this->successResponse("Task started successfully!");
         try {
             $job = Job::findOrfail($id);
             $status = 'In Progress';
@@ -116,7 +116,7 @@ class JobController extends GlobalVariableController
             $job_id = $job->id;
             $by = auth()->user()->full_name;
             $to = $job->thedeveloper->full_name;
-            $activity = "Job started by ".$by. ', status set to '.$status;
+            $activity = "Task started by ".$by. ', status set to '.$status;
             JobHistories::addNewHistory($client_id, $created_by, $job_id, $activity);
 
         } catch (\Throwable $th) {
@@ -128,7 +128,7 @@ class JobController extends GlobalVariableController
 
     public function pauseJob($id)
     {
-        $result = $this->successResponse("Job paused successfully!");
+        $result = $this->successResponse("Task paused successfully!");
         try {
             $job = Job::findOrfail($id);
             $last_status = $job->status;
@@ -156,7 +156,7 @@ class JobController extends GlobalVariableController
             $created_by = auth()->user()->id;
             $job_id = $job->id;
             $by = auth()->user()->full_name;
-            $activity = "Job paused by ".$by. ', status set to '.$status;
+            $activity = "Task paused by ".$by. ', status set to '.$status;
             JobHistories::addNewHistory($client_id, $created_by, $job_id, $activity);
 
         } catch (\Throwable $th) {
@@ -168,7 +168,7 @@ class JobController extends GlobalVariableController
 
     public function resumeJob($id)
     {
-        $result = $this->successResponse("Job resumed successfully!");
+        $result = $this->successResponse("Task resumed successfully!");
         try {
             $job = Job::findOrfail($id);
             $status = $job->last_status;
@@ -191,7 +191,7 @@ class JobController extends GlobalVariableController
             $created_by = auth()->user()->id;
             $job_id = $job->id;
             $by = auth()->user()->full_name;
-            $activity = "Job resumed by ".$by. ', status set to '.$status;
+            $activity = "Task resumed by ".$by. ', status set to '.$status;
             JobHistories::addNewHistory($client_id, $created_by, $job_id, $activity);
 
         } catch (\Throwable $th) {
@@ -203,7 +203,7 @@ class JobController extends GlobalVariableController
 
     public function submitDetails(JobSubmitDetailsRequest $request)
     {
-        $result = $this->successResponse('Job details saved successfully!');
+        $result = $this->successResponse('Task details saved successfully!');
         try {
             Job::findOrfail($request->edit_id)->update($request->except('edit_id'));
         } catch (\Throwable $th)
@@ -216,7 +216,7 @@ class JobController extends GlobalVariableController
 
     public function sendForQC(JobSendForQCRequest $request)
     {
-        $result = $this->successResponse('Job Sent for QC successfully!');
+        $result = $this->successResponse('Task Sent for QC successfully!');
         try {
             // update job status to Sent For QC
             $job = Job::findOrfail($request->edit_id);
@@ -250,7 +250,7 @@ class JobController extends GlobalVariableController
             $created_by = auth()->user()->id;
             $job_id = $job->id;
             $by = auth()->user()->full_name;
-            $activity = "Job sent for QC by ".$by;
+            $activity = "Task sent for QC by ".$by;
             JobHistories::addNewHistory($client_id, $created_by, $job_id, $activity);
 
         } catch (\Throwable $th)
@@ -268,7 +268,7 @@ class JobController extends GlobalVariableController
      */
     public function index()
     {
-        $result = $this->successResponse('Jobs loaded successfully!');
+        $result = $this->successResponse('Tasks loaded successfully!');
         try
         {
             $result["data"] =  $this->service->load();
@@ -282,7 +282,7 @@ class JobController extends GlobalVariableController
 
     public function showHistory($id)
     {
-        $result = $this->successResponse('Job History loaded successfully!');
+        $result = $this->successResponse('Task History loaded successfully!');
         try {
             $result["data"] = $this->history->load($id);
         } catch (\Throwable $th) {
@@ -294,7 +294,7 @@ class JobController extends GlobalVariableController
 
     public function store(JobStoreRequest $request)
     {
-        $result = $this->successResponse('Job created successfully!');
+        $result = $this->successResponse('Task created successfully!');
         try{
             if($request->edit_id === null)
             {
@@ -348,7 +348,7 @@ class JobController extends GlobalVariableController
 
     public function showJob($id)
     {
-        $result = $this->successResponse('Job retrieved successfully!');
+        $result = $this->successResponse('Task retrieved successfully!');
         try {
             $result["data"] = Job::findOrfail($id);
         } catch (\Throwable $th) {
@@ -373,7 +373,7 @@ class JobController extends GlobalVariableController
 
     public function getData($id)
     {
-        $result = $this->successResponse('Job retrieved successfully!');
+        $result = $this->successResponse('Task retrieved successfully!');
         try {
             $result["data"] = $this->service->show($id);
         } catch (\Throwable $th) {
@@ -385,7 +385,7 @@ class JobController extends GlobalVariableController
 
     public function update($request, $id)
     {
-        $result = $this->successResponse('Job updated successfully!');
+        $result = $this->successResponse('Task updated successfully!');
         try {
             $job = Job::where('id',$id)->first();
             $job->update($request->except(['edit_id','agreed_sla','developer','request_type','request_volume']));
@@ -397,7 +397,7 @@ class JobController extends GlobalVariableController
             $created_by = auth()->user()->id;
             $job_id = $job->id;
             $by = auth()->user()->full_name;
-            $activity = "Job details updated by ".$by;
+            $activity = "Task details updated by ".$by;
             JobHistories::addNewHistory($client_id, $created_by, $job_id, $activity);
 
         } catch (\Throwable $th)
@@ -474,7 +474,7 @@ class JobController extends GlobalVariableController
     public function destroy($id)
     {
         $job = Job::findOrfail($id);
-        $result = $this->successResponse('Job deleted successfully!');
+        $result = $this->successResponse('Task deleted successfully!');
         try {
             $job->delete();
         } catch (\Throwable $th)

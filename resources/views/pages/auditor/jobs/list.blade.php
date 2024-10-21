@@ -11,7 +11,7 @@
 @section('content')
 
     @component('components.breadcrumb')
-        @slot('li_1') Job @endslot
+        @slot('li_1') Task @endslot
         @slot('title') Pending QC @endslot
     @endcomponent
 
@@ -29,7 +29,7 @@
                     <table id="tbl_jobs" class="table table-bordered table-striped table-sm nowrap w-100">
                         <thead>
                             <tr>
-                                <th>Job Name</th>
+                                <th>Task Name</th>
                                 @if(in_array('admin',$user['roles']))<th>Client Name</th>@endif
                                 <th>Type of Request</th>
                                 <th>Num Pages</th>
@@ -38,18 +38,15 @@
                                 <th>Agreed SLA</th>
                                 <th>Time Elapsed</th>
                                 <th>SLA Missed</th>
-                                <th>Developer</th>
-                                <th>Developer</th>
+                                <th>Designer</th>
+                                <th>Designer</th>
                                 <th>QC Round</th>
-                                <th>Auditor</th>
-                                <th>Auditor</th>
+                                <th>Proofreader</th>
+                                <th>Proofreader</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                     </table>
-                    {{-- <div id="div-spinner" class="text-center mt-4 mb-4">
-                        <span id="loader" style="font-size: 16px"><i class="fa fa-spinner fa-spin"></i> Please wait...</span>
-                    </div> --}}
                 </div>
             </div>
         </div>

@@ -26,11 +26,11 @@ class JobLogExport implements FromArray, WithHeadings, WithChunkReading, WithMap
     {
         $headings = [
             'ID',
-            'Job Name',
+            'Task Name',
             'Status',
             'Site ID',
             'Platform',
-            'Developer',
+            'Designer',
             'Type of Request',
             'Num of Pages',
             'SLA Agreed',
@@ -51,7 +51,7 @@ class JobLogExport implements FromArray, WithHeadings, WithChunkReading, WithMap
             'Image(s) provided by customer',
             'Num of new images used',
             'Shared Folder Location',
-            'Developer Comments',
+            'Designer Comments',
             'Internal Quality',
             'External Quality',
             'Comments for External Quality',

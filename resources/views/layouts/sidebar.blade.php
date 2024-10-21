@@ -20,14 +20,14 @@
                         <li>
                             <a href="{{ url('job/create') }}" class="waves-effect">
                                 <i class="fa fa-plus-circle"></i>
-                                <span key="t-jobs">Add Job</span>
+                                <span key="t-jobs">Add Task</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="{{ url('pendingjobs') }}" class="waves-effect">
                                 <i class="fa fa-spinner"></i>
-                                <span key="t-pendingjobs">Pending Jobs</span>
+                                <span key="t-pendingjobs">Pending Tasks</span>
                             </a>
                         </li>
                     @endif
@@ -37,7 +37,7 @@
                         <li>
                             <a href="{{ url('myjobs') }}" class="waves-effect">
                                 <i class="fa fa-tasks"></i>
-                                <span key="t-myjobs">My Jobs</span>
+                                <span key="t-myjobs">My Tasks</span>
                             </a>
                         </li>
                     @endif
@@ -57,7 +57,7 @@
                         <li>
                             <a href="{{ url('jobs') }}" class="waves-effect">
                                 <i class="fa fa-database"></i>
-                                <span key="t-jobs">All Jobs</span>
+                                <span key="t-jobs">All Tasks</span>
                             </a>
                         </li>
 
@@ -97,7 +97,7 @@
                                 <span key="t-email">Reports</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ url('reports/joblogs') }}" key="t-job">Job Logs</a></li>
+                                <li><a href="{{ url('reports/joblogs') }}" key="t-job">Task Logs</a></li>
                                 <li><a href="{{ url('reports/auditlogs') }}" key="t-audit">Audit Logs</a></li>
                                 <li><a href="{{ url('reports/development') }}" key="t-development">Development Report</a></li>
                             </ul>
@@ -109,7 +109,7 @@
                                 <span key="t-email">Reallocation</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ url('reallocation/job') }}" key="t-read-email">Reallocate Job</a></li>
+                                <li><a href="{{ url('reallocation/job') }}" key="t-read-email">Reallocate Task</a></li>
                                 <li><a href="{{ url('reallocation/qc') }}" key="t-read-email">Reallocate QC</a></li>
                             </ul>
                         </li>

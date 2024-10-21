@@ -2,7 +2,7 @@
     <div class="col-xl-4 col-lg-6">
         <div class="card card-loading charts">
             <div class="card-body text-center">
-                <p class="mb-0 d-title">Jobs Closed By Request Type</p>
+                <p class="mb-0 d-title">Tasks Closed By Request Type</p>
                 <canvas id="jobsByRequestType" height="120"></canvas>
             </div>
         </div>
@@ -26,7 +26,7 @@
     <div class="col-xl-4 col-lg-6">
         <div class="card card-loading charts">
             <div class="card-body text-center">
-                <p class="mb-0 d-title">Closed Jobs Internal QC Summary</p>
+                <p class="mb-0 d-title">Closed Tasks Internal QC Summary</p>
                 <canvas id="closedJobsInternalQualitySummary" height="120"></canvas>
             </div>
         </div>

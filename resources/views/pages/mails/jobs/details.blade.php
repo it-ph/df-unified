@@ -1,10 +1,10 @@
 <table>
     <tr>
-        <td><strong>Job Name</strong></td>
+        <td><strong>Task Name</strong></td>
         <td><a href="{{url('viewjob')}}/{{ $job->id }}">{{ $job->name }}</a></td>
     </tr>
     <tr>
-        <td><strong>Developer</strong></td>
+        <td><strong>Designer</strong></td>
         <td>{{ ucfirst($job->thedeveloper->full_name) }}</td>
     </tr>
     <tr>

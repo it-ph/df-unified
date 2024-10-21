@@ -188,17 +188,17 @@ const JOB = (() => {
             success: function(result) {
                 if (result.length > 0) {
                     $("#auditor_id").select2({
-                        placeholder: '-- Select Auditor --'
+                        placeholder: '-- Select Proofreader --'
                     });
-                    $('#auditor_id').append('<option value="">' + '-- Select Auditor --' + '</option>');
+                    $('#auditor_id').append('<option value="">' + '-- Select Proofreader --' + '</option>');
                     $.each(result, function(index, value) {
                         $('#auditor_id').append('<option value="' + value.id + '">' + value.full_name + '</option>');
                     });
                 } else {
-                    $("#developer_id").select2({
-                        placeholder: '-- Select Developer --'
+                    $("#auditor_id").select2({
+                        placeholder: '-- Select Proofreader --'
                     });
-                    $('#developer_id').append('<option value="">' + '-- Select Developer --' + '</option>');
+                    $('#auditor_id').append('<option value="">' + '-- Select Proofreader --' + '</option>');
                     $('#auditor_id option[value=""]').prop('selected', true);
                 }
 

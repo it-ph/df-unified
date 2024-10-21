@@ -35,6 +35,6 @@
     <td class="col-sm-10 tdbreak">{{ $job['shared_folder_location'] }}</td>
 </tr>
 <tr>
-    <td class="col-sm-2 fw-bold">Developer Comments</td>
+    <td class="col-sm-2 fw-bold">Designer Comments</td>
     <td class="col-sm-10 tdbreak">{{ $job['dev_comments'] }}</td>
 </tr>

@@ -1,14 +1,14 @@
 <table>
     <tr>
-        <td><strong>Job Name</strong></td>
+        <td><strong>Task Name</strong></td>
         <td><a href="{{url('viewjob')}}/{{ $job->id }}">{{ $job->name }}</a></td>
     </tr>
     <tr>
-        <td><strong>Developer</strong></td>
+        <td><strong>Designer</strong></td>
         <td>{{ ucfirst($job->thedeveloper->full_name) }}</td>
     </tr>
     <tr>
-        <td><strong>QC Auditor</strong></td>
+        <td><strong>QC Proofreader</strong></td>
         <td>{{ $job->theauditor->full_name }}</td>
     </tr>
     <tr>
@@ -20,7 +20,7 @@
         <td>@if($audit_log->self_qc) Yes @else No @endif</td>
     </tr>
     <tr>
-        <td><strong>Dev Comments</strong></td>
+        <td><strong>Designer Comments</strong></td>
         <td>{!! $audit_log->dev_comments !!}</td>
     </tr>
     <tr>

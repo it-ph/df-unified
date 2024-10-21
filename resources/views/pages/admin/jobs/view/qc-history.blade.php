@@ -7,7 +7,7 @@
                     <table class="table table-bordered table-sm nowrap w-100">
                         <tr>
                             <th class="text-center">QC Round</th>
-                            <th class="text-center">QC Auditor</th>
+                            <th class="text-center">QC Proofreader</th>
                             <th class="text-center">QC Result</th>
                             <th class="text-center">QC Start Time</th>
                             <th class="text-center">QC End Time</th>

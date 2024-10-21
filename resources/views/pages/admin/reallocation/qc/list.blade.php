@@ -12,7 +12,7 @@
 @section('content')
 
     @component('components.breadcrumb')
-        @slot('li_1') Job @endslot
+        @slot('li_1') Task @endslot
         @slot('title') Reallocate QC @endslot
     @endcomponent
 
@@ -30,7 +30,7 @@
                     <table id="tbl_jobs" class="table table-bordered table-striped table-sm nowrap w-100">
                         <thead>
                             <tr>
-                                <th class="text-center">Job Name</th>
+                                <th class="text-center">Task Name</th>
                                 @if(in_array('admin',$user['roles']))<th>Client Name</th>@endif
                                 <th class="text-center">Type of Request</th>
                                 <th class="text-center">Num Pages</th>
@@ -38,18 +38,15 @@
                                 <th class="text-center">Start Time</th>
                                 <th class="text-center">Agreed SLA</th>
                                 <th class="text-center">SLA Missed</th>
-                                <th class="text-center">Developer</th>
-                                <th class="text-center">Developer</th>
+                                <th class="text-center">Designer</th>
+                                <th class="text-center">Designer</th>
                                 <th class="text-center">QC Round</th>
-                                <th class="text-center">Auditor</th>
-                                <th class="text-center">Auditor</th>
+                                <th class="text-center">Proofreader</th>
+                                <th class="text-center">Proofreader</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
                     </table>
-                    {{-- <div id="div-spinner" class="text-center mt-4 mb-4">
-                        <span id="loader" style="font-size: 16px"><i class="fa fa-spinner fa-spin"></i> Please wait...</span>
-                    </div> --}}
                 </div>
             </div>
         </div>

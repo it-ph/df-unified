@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="col-md-12">
-                    <p class="fw-bold mb-1 text-primary">Job Details</p>
+                    <p class="fw-bold mb-1 text-primary">Task Details</p>
                     <table class="table table-bordered table-sm nowrap w-100">
                         <tr>
                             <td class="col-sm-2 fw-bold">Status</td>
@@ -12,7 +12,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="col-sm-2 fw-bold">Job Name</td>
+                            <td class="col-sm-2 fw-bold">Task Name</td>
                             <td class="col-sm-10">{{ $job['name'] }}</td>
                         </tr>
                         @if(in_array('admin',$user['roles']))
@@ -30,7 +30,7 @@
                             <td class="col-sm-10">{{ $job['platform'] }}</td>
                         </tr>
                         <tr>
-                            <td class="col-sm-2 fw-bold">Developer</td>
+                            <td class="col-sm-2 fw-bold">Designer</td>
                             <td class="col-sm-10">{{ $job['developer'] }}</td>
                         </tr>
                         <tr>

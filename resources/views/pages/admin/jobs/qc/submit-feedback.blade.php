@@ -142,6 +142,14 @@
                                     <label id="qc_commentsError" class="error" style="display:none"></label>
                                 </div>
                             </div>
+
+                            <div class="form-group row mb-2">
+                                <label for="points_pr" class="col-sm-3 col-form-label fw-bold">Point(s) <strong><span class="important">*</span></strong></label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="points_pr" id="points_pr" placeholder="Enter point(s)" value="">
+                                    <label id="points_prError" class="error" style="display:none"></label>
+                                </div>
+                            </div>
                         </div>
                         <hr>
                         <div class="col-md-12">

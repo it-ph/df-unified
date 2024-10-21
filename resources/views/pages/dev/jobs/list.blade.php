@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') My Jobs @endsection
+@section('title') My Tasks @endsection
 
 @section('css')
     <!-- DataTables -->
@@ -11,8 +11,8 @@
 @section('content')
 
     @component('components.breadcrumb')
-        @slot('li_1') Job @endslot
-        @slot('title') My Jobs @endslot
+        @slot('li_1') Task @endslot
+        @slot('title') My Tasks @endslot
     @endcomponent
 
     <div class="row">
@@ -29,7 +29,7 @@
                     <table id="tbl_jobs" class="table table-bordered table-striped table-sm nowrap w-100">
                         <thead>
                             <tr>
-                                <th>Job Name</th>
+                                <th>Task Name</th>
                                 <th>Type of Request</th>
                                 <th>Num Pages</th>
                                 <th>Special Request</th>

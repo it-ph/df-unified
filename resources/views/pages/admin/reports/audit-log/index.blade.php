@@ -48,21 +48,21 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Job Name</th>
+                                <th>Task Name</th>
                                 @if(in_array('admin',$user['roles']))<th>Client Name</th>@endif
                                 <th>Site ID</th>
                                 <th>Platform</th>
-                                <th>Developer</th>
-                                <th>Developer</th>
+                                <th>Designer</th>
+                                <th>Designer</th>
                                 <th>Type of Request</th>
                                 <th>Num Pages</th>
                                 <th>Preview Link</th>
                                 <th>Self QC Performed</th>
-                                <th>Developer Comment</th>
+                                <th>Designer Comment</th>
                                 <th>Time Taken</th>
                                 <th>QC Round</th>
-                                <th>QC Auditor</th>
-                                <th>QC Auditor</th>
+                                <th>QC Proofreader</th>
+                                <th>QC Proofreader</th>
                                 <th>QC Status</th>
                                 <th>Call For Rework</th>
                                 <th>Num of Times</th>

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') View Job @endsection
+@section('title') View Task @endsection
 
 @section('css')
     <!-- DataTables -->
@@ -18,16 +18,16 @@
 @section('content')
 
     @component('components.breadcrumb_w_button')
-        @slot('li_1') View Job @endslot
-        @slot('title') View Job
+        @slot('li_1') View Task @endslot
+        @slot('title') View Task
             @if(auth()->user()->id == $job['developer_id'] && $job['status'] == 'Not Started')
-                <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" title="Start Job" onclick="JOB.showStartModal()"></i> Start Job</button>
+                <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" title="Start Task" onclick="JOB.showStartModal()"></i> Start Task</button>
             @endif
             @if(auth()->user()->id == $job['developer_id'] && ($job['status'] == 'In Progress' || $job['status'] == 'Bounce Back'))
-                <button type="button" class="btn btn-warning btn-sm waves-effect waves-light" title="Pause Job" onclick="JOB.showPauseModal()"></i> Pause Job</button>
+                <button type="button" class="btn btn-warning btn-sm waves-effect waves-light" title="Pause Task" onclick="JOB.showPauseModal()"></i> Pause Task</button>
             @endif
             @if(auth()->user()->id == $job['developer_id'] && $job['status'] == 'On Hold')
-                <button type="button" class="btn btn-warning btn-sm waves-effect waves-light" title="Resume Job" onclick="JOB.showResumeModal()"></i> Resume Job</button>
+                <button type="button" class="btn btn-warning btn-sm waves-effect waves-light" title="Resume Task" onclick="JOB.showResumeModal()"></i> Resume Task</button>
             @endif
         @endslot
     @endcomponent

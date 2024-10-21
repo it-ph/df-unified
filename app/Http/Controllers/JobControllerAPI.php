@@ -131,9 +131,9 @@ class JobControllerAPI extends Controller
                     return $status;
                 }))
                 ->addColumn('action', (function($value){
-                    return '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="btn btn-primary btn-sm waves-effect waves-light" title="View Job"><i class="fas fa-eye"></i></a>
+                    return '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="btn btn-primary btn-sm waves-effect waves-light" title="View Task"><i class="fas fa-eye"></i></a>
                     <button type="button" class="btn btn-info btn-sm waves-effect waves-light" title="View History" onclick=JOB.show_history('.$value->id.')><i class="fa fa-history"></i></button>
-                    <a href="'.route('job.show', ['id' => $value->id]).'" class="btn btn-warning btn-sm waves-effect waves-light" title="Edit Job"><i class="fas fa-pencil-alt"></i></a>';
+                    <a href="'.route('job.show', ['id' => $value->id]).'" class="btn btn-warning btn-sm waves-effect waves-light" title="Edit Task"><i class="fas fa-pencil-alt"></i></a>';
                 }))
                 ->rawColumns(
                 [
@@ -243,8 +243,8 @@ class JobControllerAPI extends Controller
                     return $status;
                 }))
                 ->addColumn('action', (function($value){
-                    return '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="btn btn-primary btn-sm waves-effect waves-light" title="View Job"><i class="fas fa-eye"></i></a>
-                    <a href="/job/show/'.$value->id.'" class="btn btn-warning btn-sm waves-effect waves-light" title="Edit Job"><i class="fas fa-pencil-alt"></i></a>';
+                    return '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="btn btn-primary btn-sm waves-effect waves-light" title="View Task"><i class="fas fa-eye"></i></a>
+                    <a href="/job/show/'.$value->id.'" class="btn btn-warning btn-sm waves-effect waves-light" title="Edit Task"><i class="fas fa-pencil-alt"></i></a>';
                 }))
                 ->escapeColumns([])
                 ->make(true);
@@ -339,18 +339,18 @@ class JobControllerAPI extends Controller
                 }))
                 ->addColumn('action', (function($value){
                     $status = $value->status;
-                    $action = '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="btn btn-primary btn-sm waves-effect waves-light" title="View Job"><i class="fas fa-eye"></i></a>
+                    $action = '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="btn btn-primary btn-sm waves-effect waves-light" title="View Task"><i class="fas fa-eye"></i></a>
                         <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" title="View History" onclick=JOB.show_history('.$value->id.')><i class="fa fa-history"></i></button>';
                     switch ($status) {
                         case "Not Started":
-                            $action .= ' <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" id="btn_start_'.$value->id.'" title="Start Job" onclick="JOB.start('.$value->id.')"></i><i class="fas fa-play"></i></button>';
+                            $action .= ' <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" id="btn_start_'.$value->id.'" title="Start Task" onclick="JOB.start('.$value->id.')"></i><i class="fas fa-play"></i></button>';
                             break;
                         case "In Progress":
                         case "Bounce Back":
-                            $action .= ' <button type="button" class="btn btn-warning btn-sm waves-effect waves-light" id="btn_pause_'.$value->id.'" title="Pause Job" onclick="JOB.pause('.$value->id.')"></i><i class="fas fa-pause"></i></button>';
+                            $action .= ' <button type="button" class="btn btn-warning btn-sm waves-effect waves-light" id="btn_pause_'.$value->id.'" title="Pause Task" onclick="JOB.pause('.$value->id.')"></i><i class="fas fa-pause"></i></button>';
                             break;
                         case "On Hold":
-                            $action .= ' <button type="button" class="btn btn-warning btn-sm waves-effect waves-light" id="btn_resume_'.$value->id.'" title="Resume Job" onclick="JOB.resume('.$value->id.')"></i><i class="fas fa-play"></i></button>';
+                            $action .= ' <button type="button" class="btn btn-warning btn-sm waves-effect waves-light" id="btn_resume_'.$value->id.'" title="Resume Task" onclick="JOB.resume('.$value->id.')"></i><i class="fas fa-play"></i></button>';
                             break;
                     }
 

@@ -33,7 +33,7 @@ class ReallocationController extends Controller
     /** PENDING JOBS */
     public function pendingJobs()
     {
-        $result = $this->successResponse('Jobs loaded successfully!');
+        $result = $this->successResponse('Tasks loaded successfully!');
         try
         {
             $result["data"] =  $this->service->loadPendingJobs();
@@ -47,7 +47,7 @@ class ReallocationController extends Controller
 
     public function showJob($id)
     {
-        $result = $this->successResponse('Job retrieved successfully!');
+        $result = $this->successResponse('Task retrieved successfully!');
         try {
             $result["data"] = Job::query()
                 ->where('id',$id)->select('id','client_id')
@@ -61,7 +61,7 @@ class ReallocationController extends Controller
 
     public function reallocateJob(ReallocateJobRequest $request)
     {
-        $result = $this->successResponse('Job reallocated successfully!');
+        $result = $this->successResponse('Task reallocated successfully!');
         try {
             $job = Job::findOrfail($request->edit_id);
             $job->update($request->except('edit_id'));
@@ -88,7 +88,7 @@ class ReallocationController extends Controller
     /** PENDING QCS */
     public function pendingQCs()
     {
-        $result = $this->successResponse('Jobs loaded successfully!');
+        $result = $this->successResponse('Tasks loaded successfully!');
         try
         {
             $result["data"] =  $this->service->loadPendingQCs();
@@ -102,7 +102,7 @@ class ReallocationController extends Controller
 
     public function showQC($id)
     {
-        $result = $this->successResponse('QC Job retrieved successfully!');
+        $result = $this->successResponse('QC Task retrieved successfully!');
         try {
             $result["data"] = AuditLog::query()
                 ->where('id',$id)->select('id','client_id')
@@ -116,7 +116,7 @@ class ReallocationController extends Controller
 
     public function reallocateQC(ReallocateQCRequest $request)
     {
-        $result = $this->successResponse('QC Job reallocated successfully!');
+        $result = $this->successResponse('QC Task reallocated successfully!');
         try {
             $audit_log = AuditLog::findOrfail($request->edit_id);
             $audit_log->update($request->except('edit_id'));
@@ -130,7 +130,7 @@ class ReallocationController extends Controller
             $job_id = $audit_log->job_id;
             $by = auth()->user()->full_name;
             $to = $audit_log->theauditor->full_name;
-            $activity = "QC Job reallocated by ".$by. ' and assigned to '.$to;
+            $activity = "QC Task reallocated by ".$by. ' and assigned to '.$to;
             JobHistories::addNewHistory($client_id, $created_by, $job_id, $activity);
         } catch (\Throwable $th)
         {

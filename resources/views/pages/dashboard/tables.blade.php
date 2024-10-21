@@ -5,11 +5,11 @@
                 <table id="tbl_devs" class="table table-bordered table-striped table-sm nowrap w-100 text-center">
                     <thead>
                         <tr>
-                            <th>Developer Name</th>
-                            <th>Num Closed Jobs</th>
+                            <th>Designer Name</th>
+                            <th>Num Closed Tasks</th>
                             <th>Num SLA Missed</th>
-                            <th>Job QC Pass</th>
-                            <th>Job QC Fail</th>
+                            <th>Task QC Pass</th>
+                            <th>Task QC Fail</th>
                             <th>Quality Score</th>
                             <th>Avg Dev Time</th>
                         </tr>
@@ -27,7 +27,7 @@
                 <table id="tbl_auditors" class="table table-bordered table-striped table-sm nowrap w-100 text-center">
                     <thead>
                         <tr>
-                            <th>Auditor Name</th>
+                            <th>Proofreader Name</th>
                             <th>Num QC Request</th>
                             <th>QC Pass</th>
                             <th>QC Fail</th>

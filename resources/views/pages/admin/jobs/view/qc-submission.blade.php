@@ -31,10 +31,18 @@
                             </div>
 
                             <div class="form-group row mb-2">
-                                <label for="dev_comments" class="col-sm-2 col-form-label fw-bold">Developer Comments <strong><span class="important">*</span></strong></label>
+                                <label for="dev_comments" class="col-sm-2 col-form-label fw-bold">Designer Comments <strong><span class="important">*</span></strong></label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" name="dev_comments" id="dev_comments" cols="30" rows="4" placeholder="Enter developer comments."></textarea>
+                                    <textarea class="form-control" name="dev_comments" id="dev_comments" cols="30" rows="4" placeholder="Enter designer comments."></textarea>
                                     <label id="dev_commentsError" class="error" style="display:none"></label>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-2">
+                                <label for="points_designer" class="col-sm-2 col-form-label fw-bold">Point(s) <strong><span class="important">*</span></strong></label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="points_designer" id="points_designer" placeholder="Enter point(s)" value="">
+                                    <label id="points_designerError" class="error" style="display:none"></label>
                                 </div>
                             </div>
 
