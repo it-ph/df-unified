@@ -29,11 +29,13 @@
                     <table id="tbl_jobs" class="table table-bordered table-striped table-sm nowrap w-100">
                         <thead>
                             <tr>
-                                <th>Task Name</th>
+                                <th>Account No.</th>
+                                <th>Account Name</th>
                                 @if(in_array('admin',$user['roles']))<th>Client Name</th>@endif
                                 <th>Type of Request</th>
                                 <th>Num Pages</th>
-                                <th>Special Request</th>
+                                <th>Supervisor</th>
+                                <th>Supervisor</th>
                                 <th>Created On</th>
                                 <th>Start Time</th>
                                 <th>End Time</th>

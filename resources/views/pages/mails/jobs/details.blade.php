@@ -1,7 +1,11 @@
 <table>
     <tr>
-        <td><strong>Task Name</strong></td>
+        <td><strong>Account No</strong></td>
         <td><a href="{{url('viewjob')}}/{{ $job->id }}">{{ $job->name }}</a></td>
+    </tr>
+    <tr>
+        <td><strong>Account Name</strong></td>
+        <td>{{ $job->name }}</td>
     </tr>
     <tr>
         <td><strong>Designer</strong></td>
@@ -18,14 +22,6 @@
     <tr>
         <td><strong>Agreed SLA</strong></td>
         <td>{{ $job->therequestsla->agreed_sla }} hrs</td>
-    </tr>
-    {{-- <tr>
-        <td><strong>Salesforce Link</strong></td>
-        <td><a href="{{ $job->salesforce_link }}">{{ $job->salesforce_link }}</a></td>
-    </tr> --}}
-    <tr>
-        <td><strong>Special Request</strong></td>
-        <td>@if($job->special_request) Yes @else No @endif</td>
     </tr>
     <tr>
         <td><strong>Status</strong></td>

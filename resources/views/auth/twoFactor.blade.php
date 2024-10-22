@@ -102,7 +102,7 @@
                         </div>
                         <div class="mt-4 text-center">
                             <div>Copyright © {{ date('Y') }}
-                                eClerx Philippines | SLA Tracker v1.0.0
+                                eClerx Philippines | DF Unified v1.0.0
                             </div>
                         </div>
 

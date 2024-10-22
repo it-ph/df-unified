@@ -91,10 +91,12 @@ const JOB = (() => {
             serverSide: true,
             ajax: `${APP_URL}/myjob/api/all`,
             columns: [
-                { data: 'name', name: 'name' },
+                { data: 'account_no', name: 'account_no' },
+                { data: 'account_name', name: 'account_name' },
                 { data: 'request_type_id', name: 'therequesttype.name', className: 'text-center' },
                 { data: 'request_volume_id', name: 'therequestvolume.name', className: 'text-center' },
-                { data: 'special_request', name: 'special_request', className: 'text-center' },
+                { data: 'supervisor_id', name: 'thesupervisor.first_name', className: 'text-center' },
+                { data: 'supervisor_id', name: 'thesupervisor.last_name', className: 'hide-column' },
                 { data: 'created_at', name: 'created_at', className: 'text-center' },
                 { data: 'start_at', name: 'start_at', className: 'text-center' },
                 { data: 'end_at', name: 'end_at', className: 'text-center' },
@@ -241,7 +243,7 @@ const JOB = (() => {
                     `<tr>
                         <td class="text-center">${val.created_at}</td>
                         <td class="text-center">${val.created_by}</td>
-                        <td>${val.job_name}</td>
+                        <td>${val.account_no}</td>
                         <td>${val.activity}</td>
 
                     </tr>`;

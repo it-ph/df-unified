@@ -16,13 +16,13 @@
                                     <tr>
                                         <th class="text-center">Created at</th>
                                         <th class="text-center">Created by</th>
-                                        <th class="text-center">Task Name</th>
+                                        <th class="text-center">Account No.</th>
                                         <th class="text-center">Activity</th>
                                     </tr>
                                 </thead>
                             </table>
 
-                            <div id="div-spinner" class="text-center mt-4 mb-4 font-size-18">
+                            <div id="div-spinner" class="text-center mt-4 mb-4 font-size-16">
                                 <span id="loader-history"><i class="fa fa-spinner fa-spin"></i> Please wait...</span>
                             </div>
                         </div>

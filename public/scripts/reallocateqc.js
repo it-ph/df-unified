@@ -96,11 +96,11 @@ const JOB = (() => {
             serverSide: true,
             ajax: `${APP_URL}/reallocation/qcs/api/all`,
             columns: [
-                { data: 'job_id', name: 'thejob.name', },
+                { data: 'account_no', name: 'thejob.account_no', },
+                { data: 'account_name', name: 'thejob.account_name', },
                 ...(isAdmin ? [{ data: 'client_id', name: 'theclient.name', className: 'text-center ' }] : []),
                 { data: 'request_type_id', name: 'thejob.therequesttype.name', className: 'text-center' },
                 { data: 'request_volume_id', name: 'thejob.therequestvolume.name', className: 'text-center' },
-                { data: 'special_request', name: 'thejob.special_request', className: 'text-center' },
                 { data: 'start_at', name: 'start_at', className: 'text-center' },
                 { data: 'request_sla_id', name: 'thejob.request_sla_id', className: 'text-center' },
                 { data: 'sla_missed', name: 'thejob.sla_missed', className: 'text-center' },

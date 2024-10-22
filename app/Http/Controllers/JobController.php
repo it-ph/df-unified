@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DateTime;
 use Carbon\Carbon;
 use App\Models\Job;
+use App\Models\User;
 use App\Models\Event;
 use App\Models\Client;
 use App\Models\AuditLog;
@@ -22,11 +23,11 @@ use Illuminate\Support\Facades\Mail;
 use App\Services\JobsHistoryServices;
 use App\Http\Requests\JobStoreRequest;
 use App\Http\Requests\JobSendForQCRequest;
+use Facades\App\Http\Helpers\JobHistories;
 use App\Http\Requests\JobSubmitDetailsRequest;
 use Facades\App\Http\Helpers\CredentialsHelper;
 use Facades\App\Http\Helpers\TimeElapsedHelper;
 use Facades\App\Http\Helpers\WorkingHoursHelper;
-use Facades\App\Http\Helpers\JobHistories;
 use App\Http\Controllers\GlobalVariableController;
 use App\Http\Requests\JobUpdateExternalQualityRequest;
 
@@ -298,6 +299,9 @@ class JobController extends GlobalVariableController
         try{
             if($request->edit_id === null)
             {
+                $request['status'] = 'Not Started';
+                $request['supervisor_id'] = User::where('id',$request['developer_id'])->first();
+                $request['supervisor_id'] = $request['supervisor_id']->supervisor_id;
                 $request['request_sla_id'] = $request->request_sla_id;
                 $client_id = $request['client_id'];
                 $request['created_by'] = auth()->user()->id;
@@ -312,7 +316,7 @@ class JobController extends GlobalVariableController
                     'thedeveloper:id,first_name,last_name,email',
                     'thecreatedby:id,first_name,last_name,email',
                 ])
-                ->select('id','name','client_id','developer_id','request_type_id','request_volume_id','request_sla_id','special_request','created_by','salesforce_link','status')
+                ->select('id','account_no','account_name','client_id','developer_id','request_type_id','request_volume_id','request_sla_id','created_by','status')
                 ->where('id',$job->id)
                 ->first();
 

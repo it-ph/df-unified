@@ -32,17 +32,14 @@ class JobStoreRequest extends FormRequest
         $user = CredentialsHelper::get_set_credentials();
         return [
             'client_id' => in_array('admin', $user['roles']) ? ['required'] : 'nullable',
-            'name' => ['required'],
+            'account_no' => ['required'],
+            'account_name' => ['required'],
             'site_id' => ['required'],
             'platform' => ['required'],
             'developer_id' => ['required'],
             'request_type_id' => ['required'],
             'request_volume_id' => ['required'],
-            // 'request_sla_id' => ['required'],
             'agreed_sla' => ['required'],
-            'salesforce_link' => ['required'],
-            'special_request' => ['required'],
-            'comments_special_request' => ['required'],
             'addon_comments' => ['required'],
         ];
     }
@@ -51,17 +48,14 @@ class JobStoreRequest extends FormRequest
     {
         return [
             'client_id.required' => 'Client is required.',
-            'name.required' => 'Job Name is required.',
+            'account_no.required' => 'Account No. is required.',
+            'account_name.required' => 'Account Name is required.',
             'site_id.required' => 'Site ID is required.',
             'platform.required' => 'Platform is required.',
             'developer_id.required' => 'Developer is required.',
             'request_type_id.required' => 'Type of Request is required.',
             'request_volume_id.required' => 'Num Pages is required.',
-            // 'request_sla_id.required' => 'Request SLA is required.',
             'agreed_sla.required' => 'Agreed SLA is required. Request SLA not found.',
-            'salesforce_link.required' => 'Salesforce Link is required.',
-            'special_request.required' => 'Special Request is required.',
-            'comments_special_request.required' => 'Comments for Special Request is required.',
             'addon_comments.required' => 'Additional Comments is required.',
         ];
     }

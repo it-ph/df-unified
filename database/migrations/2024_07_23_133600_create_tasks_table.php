@@ -15,12 +15,13 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('status')->default('Not Started');
+            $table->string('account_no');
+            $table->string('account_name');
+            $table->string('status')->default('Not Assigned');
             $table->string('site_id');
             $table->string('platform'); // duda or wordpress
             $table->integer('client_id'); // auto populate based on user client
-            $table->integer('supervisor_id');
+            $table->integer('supervisor_id')->nullable();
             $table->integer('developer_id')->nullable();
             $table->integer('request_type_id');
             $table->integer('request_volume_id'); // num pages

@@ -51,19 +51,18 @@
                                 </div>
                                 <div class="form-group row mb-2">
                                     <input type="hidden" name="edit_id" id="edit_id">
-                                    <label for="name" class="col-sm-2 col-form-label fw-bold">Account Name <strong><span class="important">*</span></strong></label>
+                                    <label for="account_name" class="col-sm-2 col-form-label fw-bold">Account Name <strong><span class="important">*</span></strong></label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Account Name">
-                                        <label id="nameError" class="error" style="display:none"></label>
+                                        <input type="text" class="form-control" name="account_name" id="account_name" placeholder="Enter Account Name">
+                                        <label id="account_nameError" class="error" style="display:none"></label>
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-2">
-                                    <input type="hidden" name="edit_id" id="edit_id">
-                                    <label for="number" class="col-sm-2 col-form-label fw-bold">Account Number <strong><span class="important">*</span></strong></label>
+                                    <label for="account_no" class="col-sm-2 col-form-label fw-bold">Account No. <strong><span class="important">*</span></strong></label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="number" id="number" placeholder="Enter Account Number">
-                                        <label id="numberError" class="error" style="display:none"></label>
+                                        <input type="text" class="form-control" name="account_no" id="account_no" placeholder="Enter Account No">
+                                        <label id="account_noError" class="error" style="display:none"></label>
                                     </div>
                                 </div>
 
@@ -75,11 +74,21 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row mb-2">
+                                {{-- <div class="form-group row mb-2">
                                     <label for="platform" class="col-sm-2 col-form-label fw-bold">Platform <strong><span class="important">*</span></strong></label>
                                     <div class="col-sm-10">
                                         <select class="form-control select2" name="platform" id="platform">
-                                            {{-- <option value=""disabled selected>-- Select Platform -- </option> --}}
+                                            <option value="Duda" selected>Duda</option>
+                                            <option value="Wordpress" >Wordpress</option>
+                                        </select>
+                                        <label id="platformError" class="error" style="display:none"></label>
+                                    </div>
+                                </div> --}}
+
+                                <div class="form-group row mb-2">
+                                    <label for="platform" class="col-sm-2 col-form-label fw-bold">Designer <strong><span class="important">*</span></strong></label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control select2" name="platform" id="platform"  style="width:100%;">
                                             <option value="Duda" selected>Duda</option>
                                             <option value="Wordpress" >Wordpress</option>
                                         </select>
@@ -133,37 +142,6 @@
                                         <input type="hidden" class="form-control" name="request_sla_id" id="request_sla_id">
                                         <input type="text" readonly class="form-control" name="agreed_sla" id="agreed_sla" placeholder="Based on selected Type of Request and Num Pages.">
                                         <label id="agreed_slaError" class="error" style="display:none"></label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mb-2">
-                                    <label for="salesforce_link" class="col-sm-2 col-form-label fw-bold">Salesforce Link <strong><span class="important">*</span></strong></label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="salesforce_link" id="salesforce_link" placeholder="Enter Salesforce Link">
-                                        <label id="salesforce_linkError" class="error" style="display:none"></label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="special_request" class="col-sm-2 col-form-label fw-bold">Special Request <strong><span class="important">*</span></strong></label>
-                                    <div class="col-sm-9 mt-10">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="special_request" id="special_request_yes" value="1">
-                                            <label class="form-check-label" for="special_request_yes">Yes</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input no" type="radio" name="special_request" id="special_request_no" value="0">
-                                            <label class="form-check-label" for="special_request_no">No</label>
-                                        </div><br>
-                                        <label id="special_requestError" class="error" style="display:none"></label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mb-2">
-                                    <label for="comments_special_request" class="col-sm-2 col-form-label fw-bold">Comments for Special Request <strong><span class="important">*</span></strong></label>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" name="comments_special_request" id="comments_special_request" cols="30" rows="4" placeholder="Enter comments for special request."></textarea>
-                                        <label id="comments_special_requestError" class="error" style="display:none"></label>
                                     </div>
                                 </div>
 

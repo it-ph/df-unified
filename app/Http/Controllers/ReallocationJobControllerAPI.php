@@ -31,26 +31,46 @@ class ReallocationJobControllerAPI extends Controller
         {
             $jobs = Job::with([
                 'theclient:id,name,start,end,shift_hours,sla_threshold',
+                'thesupervisor:id,first_name,last_name',
                 'therequesttype:id,name',
                 'therequestvolume:id,name',
                 'therequestsla:id,agreed_sla',
                 'thedeveloper:id,first_name,last_name',
             ])
-            ->select('id','name','client_id','request_type_id','request_volume_id','request_sla_id','special_request','created_at','start_at','time_taken','sla_missed','developer_id','status')
-            ->where('status','<>','Closed')
+            ->select('tasks.*')
+            // ->select('id','name','client_id','request_type_id','request_volume_id','request_sla_id','special_request','created_at','start_at','time_taken','sla_missed','developer_id','status')
+            ->where('tasks.status','<>','Closed')
             ->orderBy('created_at','DESC');
 
             $roles = $this->getRoles();
 
             // Continue with roles-based query adjustments
             $roles = $this->getRoles();
-            $isAdmin = in_array('admin', $roles);
+            // $isAdmin = in_array('admin', $roles);
+            // $jobs = $isAdmin ? $jobs : $jobs->clientjobs();
 
-            $jobs = $isAdmin ? $jobs : $jobs->clientjobs();
+            // ADMIN, MANAGER
+            if(in_array('admin',$roles))
+            {
+                $jobs = $jobs;
+            }
+            // MANAGER
+            elseif(in_array('manager',$roles))
+            {
+                $jobs = $jobs->clientjobs();
+            }
+            // TEAM LEAD
+            else
+            {
+                $jobs = $jobs->supervisors();
+            }
 
             return datatables($jobs)
-                ->editColumn('name', (function($value){
-                    return '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="text-info">'. $value->name .'</a>';
+                ->editColumn('account_no', (function($value){
+                    return '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="text-info">'. $value->account_no .'</a>';
+                }))
+                ->editColumn('account_name', (function($value){
+                    return $value->account_name;
                 }))
                 ->editColumn('client_id', (function($value){
                     return $value->theclient ? $value->theclient->name : '-';
@@ -61,8 +81,8 @@ class ReallocationJobControllerAPI extends Controller
                 ->editColumn('request_volume_id', (function($value){
                     return $value->therequestvolume ? $value->therequestvolume->name : '-';
                 }))
-                ->editColumn('special_request', (function($value){
-                    return $value->special_request ? 'Yes' : 'No';
+                ->editColumn('supervisor_id', (function($value){
+                    return $value->thesupervisor ? $value->thesupervisor->full_name : '-';
                 }))
                 ->editColumn('created_at', (function($value){
                     return $value->created_at ? date('d-M-y h:i:s a', strtotime($value->created_at)) : '-';

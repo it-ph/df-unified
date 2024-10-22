@@ -29,10 +29,12 @@
                     <table id="tbl_jobs" class="table table-bordered table-striped table-sm nowrap w-100">
                         <thead>
                             <tr>
-                                <th>Task Name</th>
+                                <th>Account No.</th>
+                                <th>Account Name</th>
                                 <th>Type of Request</th>
                                 <th>Num Pages</th>
-                                <th>Special Request</th>
+                                <th>Supervisor</th>
+                                <th>Supervisor</th>
                                 <th>Created On</th>
                                 <th>Start Time</th>
                                 <th>End Time</th>
@@ -45,9 +47,6 @@
                             </tr>
                         </thead>
                     </table>
-                    {{-- <div id="div-spinner" class="text-center mt-4 mb-4">
-                        <span id="loader" style="font-size: 16px"><i class="fa fa-spinner fa-spin"></i> Please wait...</span>
-                    </div> --}}
                 </div>
             </div>
         </div>

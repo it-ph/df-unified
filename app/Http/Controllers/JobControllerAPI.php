@@ -41,23 +41,43 @@ class JobControllerAPI extends Controller
         {
             $jobs = Job::with([
                 'theclient:id,name,start,end,shift_hours,sla_threshold',
+                'thesupervisor:id,first_name,last_name',
                 'therequesttype:id,name',
                 'therequestvolume:id,name',
                 'therequestsla:id,agreed_sla',
                 'thedeveloper:id,first_name,last_name',
             ])
-            ->select('id','name','client_id','request_type_id','request_volume_id','request_sla_id','special_request','created_at','start_at','end_at','time_taken','sla_missed','internal_quality','external_quality','developer_id','status')
+            ->select('tasks.*')
+            // ->select('id','name','client_id','request_type_id','request_volume_id','request_sla_id','special_request','created_at','start_at','end_at','time_taken','sla_missed','internal_quality','external_quality','developer_id','status')
             ->orderBy('created_at','DESC');
 
             // Continue with roles-based query adjustments
             $roles = $this->getRoles();
-            $isAdmin = in_array('admin', $roles);
+            // $isAdmin = in_array('admin', $roles);
+            // $jobs = $isAdmin ? $jobs : $jobs->clientjobs();
 
-            $jobs = $isAdmin ? $jobs : $jobs->clientjobs();
+            // ADMIN, MANAGER
+            if(in_array('admin',$roles))
+            {
+                $jobs = $jobs;
+            }
+            // MANAGER
+            elseif(in_array('manager',$roles))
+            {
+                $jobs = $jobs->clientjobs();
+            }
+            // TEAM LEAD
+            else
+            {
+                $jobs = $jobs->supervisors();
+            }
 
             return datatables($jobs)
-                ->editColumn('name', (function($value){
-                    return '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="text-info">'. $value->name .'</a>';
+                ->editColumn('account_no', (function($value){
+                    return '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="text-info">'. $value->account_no .'</a>';
+                }))
+                ->editColumn('account_name', (function($value){
+                    return $value->account_name;
                 }))
                 ->editColumn('client_id', (function($value){
                     return $value->theclient ? $value->theclient->name : '-';
@@ -68,8 +88,8 @@ class JobControllerAPI extends Controller
                 ->editColumn('request_volume_id', (function($value){
                     return $value->therequestvolume ? $value->therequestvolume->name : '-';
                 }))
-                ->editColumn('special_request', (function($value){
-                    return $value->special_request ? 'Yes' : 'No';
+                ->editColumn('supervisor_id', (function($value){
+                    return $value->thesupervisor ? $value->thesupervisor->full_name : '-';
                 }))
                 ->editColumn('created_at', (function($value){
                     return $value->created_at ? date('d-M-y h:i:s a', strtotime($value->created_at)) : '-';
@@ -151,31 +171,41 @@ class JobControllerAPI extends Controller
         {
             $jobs = Job::with([
                 'theclient:id,name,start,end,shift_hours,sla_threshold',
+                'thesupervisor:id,first_name,last_name',
                 'therequesttype:id,name',
                 'therequestvolume:id,name',
                 'therequestsla:id,agreed_sla',
                 'thedeveloper:id,first_name,last_name',
             ])
-            ->select('id','name','client_id','request_type_id','request_volume_id','request_sla_id','special_request','created_at','start_at','time_taken','sla_missed','developer_id','status')
-            ->where('status','<>','Closed')
+            ->select('tasks.*')
+            // ->select('id','account_no','account_name','client_id','supervisor_id','request_type_id','request_volume_id','request_sla_id','created_at','start_at','time_taken','sla_missed','developer_id','status')
+            ->where('tasks.status','<>','Closed')
             ->orderBy('created_at','DESC');
 
             $roles = $this->getRoles();
 
-            // ADMIN
+            // ADMIN, MANAGER
             if(in_array('admin',$roles))
             {
                 $jobs = $jobs;
             }
-            // TEAM LEAD, MANAGER
-            else
+            // MANAGER
+            elseif(in_array('manager',$roles))
             {
                 $jobs = $jobs->clientjobs();
             }
+            // TEAM LEAD
+            else
+            {
+                $jobs = $jobs->supervisors();
+            }
 
             return datatables($jobs)
-                ->editColumn('name', (function($value){
-                    return '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="text-info">'. $value->name .'</a>';
+                ->editColumn('account_no', (function($value){
+                    return '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="text-info">'. $value->account_no .'</a>';
+                }))
+                ->editColumn('account_name', (function($value){
+                    return $value->account_name;
                 }))
                 ->editColumn('client_id', (function($value){
                     return $value->theclient ? $value->theclient->name : '-';
@@ -186,8 +216,8 @@ class JobControllerAPI extends Controller
                 ->editColumn('request_volume_id', (function($value){
                     return $value->therequestvolume ? $value->therequestvolume->name : '-';
                 }))
-                ->editColumn('special_request', (function($value){
-                    return $value->special_request ? 'Yes' : 'No';
+                ->editColumn('supervisor_id', (function($value){
+                    return $value->thesupervisor ? $value->thesupervisor->full_name : '-';
                 }))
                 ->editColumn('created_at', (function($value){
                     return $value->created_at ? date('d-M-y h:i:s a', strtotime($value->created_at)) : '-';
@@ -258,19 +288,24 @@ class JobControllerAPI extends Controller
         {
             $jobs = Job::with([
                 'theclient:id,name,start,end,shift_hours,sla_threshold',
+                'thesupervisor:id,first_name,last_name',
                 'therequesttype:id,name',
                 'therequestvolume:id,name',
                 'therequestsla:id,agreed_sla',
                 'thedeveloper:id,first_name,last_name',
             ])
-            ->select('id','name','client_id','request_type_id','request_volume_id','request_sla_id','special_request','created_at','start_at','end_at','time_taken','sla_missed','p_sla_miss','internal_quality','external_quality','developer_id','status')
+            ->select('tasks.*')
+            // ->select('id','account_no','account_name','client_id','supervisor_id','request_type_id','request_volume_id','request_sla_id','created_at','start_at','end_at','time_taken','sla_missed','p_sla_miss','internal_quality','external_quality','developer_id','status')
             // ->clientjobs() uncomment this if filter also by client_id
             ->devs()
             ->orderBy('created_at','DESC');
 
             return datatables($jobs)
-                ->editColumn('name', (function($value){
-                    return '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="text-info">'. $value->name .'</a>';
+                ->editColumn('account_no', (function($value){
+                    return '<a href="'.route('job.view', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="text-info">'. $value->account_no .'</a>';
+                }))
+                ->editColumn('account_name', (function($value){
+                    return $value->account_name;
                 }))
                 ->editColumn('client_id', (function($value){
                     return $value->theclient ? $value->theclient->name : '-';
@@ -281,8 +316,11 @@ class JobControllerAPI extends Controller
                 ->editColumn('request_volume_id', (function($value){
                     return $value->therequestvolume ? $value->therequestvolume->name : '-';
                 }))
-                ->editColumn('special_request', (function($value){
-                    return $value->special_request ? 'Yes' : 'No';
+                ->editColumn('client_id', (function($value){
+                    return $value->theclient ? $value->theclient->name : '-';
+                }))
+                ->editColumn('supervisor_id', (function($value){
+                    return $value->thesupervisor ? $value->thesupervisor->full_name : '-';
                 }))
                 ->editColumn('created_at', (function($value){
                     return $value->created_at ? date('d-M-y h:i:s a', strtotime($value->created_at)) : '-';

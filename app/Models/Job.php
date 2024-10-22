@@ -20,6 +20,11 @@ class Job extends Model
         return $query->where('tasks.client_id', auth()->user()->client_id);
     }
 
+    public function scopeSupervisors($query)
+    {
+        return $query->where('tasks.supervisor_id',auth()->user()->id);
+    }
+
     public function scopeDevs($query)
     {
         return $query->where('developer_id', auth()->user()->id);
@@ -28,6 +33,11 @@ class Job extends Model
     public function theclient()
     {
         return $this->belongsTo(Client::class, 'client_id')->withTrashed();
+    }
+
+    public function thesupervisor()
+    {
+        return $this->belongsTo(User::class, 'supervisor_id')->withTrashed();
     }
 
     public function thedeveloper()

@@ -15,7 +15,8 @@ class AddIndexesToTasksTable extends Migration
     {
         Schema::table('tasks', function (Blueprint $table) {
             $table->index('id');
-            $table->index('name');
+            $table->index('account_name');
+            $table->index('account_no');
             $table->index('request_type_id');
             $table->index('request_volume_id');
             $table->index('request_sla_id');
@@ -35,7 +36,8 @@ class AddIndexesToTasksTable extends Migration
     {
         Schema::table('tasks', function (Blueprint $table) {
             $table->dropIndex(['id']);
-            $table->dropIndex(['name']);
+            $table->dropIndex(['account_name']);
+            $table->dropIndex(['account_no']);
             $table->dropIndex(['request_type_id']);
             $table->dropIndex(['request_volume_id']);
             $table->dropIndex(['request_sla_id']);

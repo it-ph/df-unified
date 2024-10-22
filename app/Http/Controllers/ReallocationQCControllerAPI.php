@@ -31,7 +31,7 @@ class ReallocationQCControllerAPI extends Controller
         {
             $pending_qcs = AuditLog::with([
                 'theclient:id,name',
-                'thejob:id,name,request_type_id,request_volume_id,request_sla_id,special_request,time_taken,sla_missed,developer_id',
+                'thejob:id,account_no,account_name,request_type_id,request_volume_id,request_sla_id,time_taken,sla_missed,developer_id',
                 'thejob.therequestsla:id,agreed_sla',
                 'thejob.therequesttype:id,name',
                 'thejob.therequestvolume:id,name',
@@ -50,8 +50,11 @@ class ReallocationQCControllerAPI extends Controller
             $pending_qcs = $isAdmin ? $pending_qcs : $pending_qcs->clientqcs();
 
             return datatables($pending_qcs)
-                ->editColumn('job_id', (function($value){
-                    return auth()->user()->id == $value->auditor_id ? '<a href="'.route('job.qc', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="text-info">'. $value->thejob->name .'</a>' : $value->thejob->name;
+                ->editColumn('account_no', (function($value){
+                    return auth()->user()->id == $value->auditor_id ? '<a href="'.route('job.qc', ['id' => $value->id]).'" rel="noopener noreferrer" target="_blank" class="text-info">'. $value->thejob->account_no .'</a>' : $value->thejob->account_no;
+                }))
+                ->editColumn('account_name', (function($value){
+                    return $value->thejob->account_name;
                 }))
                 ->editColumn('client_id', (function($value){
                     return $value->theclient ? $value->theclient->name : '-';
