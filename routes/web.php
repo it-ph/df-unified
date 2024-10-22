@@ -157,7 +157,7 @@ Route::group(['middleware' => ['auth','twofactor','web','active.user']],function
             });
         });
 
-        Route::group(['middleware' => ['role:admin,manager,team lead']], function ()
+        Route::group(['middleware' => ['role:admin,manager,supervisor']], function ()
         {
             // JOBS
             Route::get('/jobs', [PageController::class, 'showJobs'])->name('jobs.index');

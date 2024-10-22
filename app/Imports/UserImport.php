@@ -40,8 +40,9 @@ class UserImport implements ToModel, WithHeadingRow,SkipsEmptyRows
             'first_name' => 'A',
             'last_name' => 'B',
             'email_address' => 'C',
-            'roles' => 'D',
-            'client' => 'E'
+            'email_address' => 'D',
+            'roles' => 'E',
+            'client' => 'F'
         ];
 
         // Check if the current user is not admin
@@ -67,12 +68,26 @@ class UserImport implements ToModel, WithHeadingRow,SkipsEmptyRows
             ])->first();
         }
 
+        if(!empty($row['supervisor_email']))
+        {
+            $supervisor = User::where('email',$row['supervisor_email'])->first();
+            if (empty($supervisor)) {
+                $ctr_error += 1;
+                array_push($this->has_error, " Check Cell F".$this->row_number.", Supervisor: ".$row['supervisor_email']." does not exist.");
+            }
+            else
+            {
+                // Find the existing supervisor
+                $supervisor_id = $supervisor->id;
+            }
+        }
+
         if(!$isNotAdmin && !empty($row['client']))
         {
             $client = Client::where('name',$row['client'])->first();
             if (empty($client)) {
                 $ctr_error += 1;
-                array_push($this->has_error, " Check Cell E".$this->row_number.", Client: ".$row['client']." does not exist.");
+                array_push($this->has_error, " Check Cell F".$this->row_number.", Client: ".$row['client']." does not exist.");
             }
             else
             {
@@ -86,7 +101,7 @@ class UserImport implements ToModel, WithHeadingRow,SkipsEmptyRows
         }
 
         // Define allowed roles
-        $allowedRoles = ['manager', 'team lead', 'proofreader', 'designer'];
+        $allowedRoles = ['manager', 'supervisor', 'proofreader', 'designer'];
 
         // Split the string into an array
         $rolesArray = explode(',', $row['roles']);
@@ -110,7 +125,7 @@ class UserImport implements ToModel, WithHeadingRow,SkipsEmptyRows
         {
             if (empty($rolesArray)) {
                 $ctr_error += 1;
-                array_push($this->has_error, " Check Cell D".$this->row_number.", "."Roles: ".$row['roles']." is invalid.");
+                array_push($this->has_error, " Check Cell E".$this->row_number.", "."Roles: ".$row['roles']." is invalid.");
             }
         }
 
@@ -131,6 +146,7 @@ class UserImport implements ToModel, WithHeadingRow,SkipsEmptyRows
                     'username' => strtolower($row['first_name']) . '.' . strtolower($row['last_name']),
                     'first_name' => ucfirst($row['first_name']),
                     'last_name' => ucfirst($row['last_name']),
+                    'supervisor_id' => $supervisor_id,
                     'password' => $user ? $user->password : $hashedPassword, // Use existing password if user exists
                 ]
             );

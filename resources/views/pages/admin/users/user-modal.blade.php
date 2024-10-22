@@ -27,6 +27,7 @@
                         <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email Addrress">
                         <label id="emailError" class="error" style="display:none"></label>
                     </div>
+
                     @if(in_array('admin',$user['roles']))
                     <div class="form-group">
                         <label for="client_id" class="col-form-label"><strong>Client:<span class="important">*</span></strong></label>
@@ -41,6 +42,20 @@
                         <label id="client_idError" class="error" style="display:none"></label>
                     </div>
                     @endif
+
+                    <div class="form-group">
+                        <label for="supervisor_id" class="col-form-label"><strong>Supervisor:<span class="important">*</span></strong></label>
+                        <select class="form-control select2" name="supervisor_id" id="supervisor_id" style="width:100%;">
+                            <option value="" selected disabled>-- Select Supervisor -- </option>
+                                @foreach ($supervisors as $supervisor )
+                                    @if($supervisor)
+                                        <option value="{{ $supervisor->id }}">{{ ucwords($supervisor->fullname) }}</option>
+                                    @endif
+                                @endforeach
+                        </select>
+                        <label id="supervisor_idError" class="error" style="display:none"></label>
+                    </div>
+
                     <div class="form-group">
                         <label for="role" class="col-form-label"><strong>Roles:<span class="important">*</span></strong></label>
                         <div class="roles-checklists">
@@ -66,9 +81,9 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input theroles" type="checkbox" name="roles[]" value="team lead" id="team_lead">
-                                <label class="form-check-label" for="team_lead">
-                                    Team Lead
+                                <input class="form-check-input theroles" type="checkbox" name="roles[]" value="supervisor" id="supervisor">
+                                <label class="form-check-label" for="supervisor">
+                                    Supervisor
                                 </label>
                             </div>
                             <div class="form-check">
@@ -77,12 +92,12 @@
                                     Manager
                                 </label>
                             </div>
-                            <div class="form-check">
+                            {{-- <div class="form-check">
                                 <input class="form-check-input theroles" type="checkbox" name="roles[]" value="client" id="client">
                                 <label class="form-check-label" for="client">
                                     Client
                                 </label>
-                            </div>
+                            </div> --}}
                         </div>
                         <label id="role-ctrError" class="error" style="display:none"></label>
                     </div>

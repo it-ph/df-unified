@@ -139,7 +139,7 @@ function getSLA(typeId, volumeId) {
 function resetForm() {
     $('#addJobForm')[0].reset();
     // $("#client_id").val(null).trigger("change");
-    $("#platform").val(null).trigger("change");
+    // $("#platform").val(null).trigger("change");
     $("#developer_id").val(null).trigger("change");
     $("#request_type_id").val(null).trigger("change");
     $("#request_volume_id").val(null).trigger("change");

@@ -24,9 +24,10 @@ class UserControllerAPI extends Controller
         {
             $users = User::with([
                 'theclient:id,name',
+                'thesupervisor:id,first_name,last_name',
                 'theroles:id,user_id,name'
             ])
-            ->select('id','first_name','last_name','email','client_id','status','last_login_at');
+            ->select('id','first_name','last_name','email','client_id','supervisor_id','status','last_login_at');
 
             $roles = $this->getRoles();
 
@@ -35,10 +36,15 @@ class UserControllerAPI extends Controller
             {
                 $users = $users;
             }
-            // TEAM LEAD, MANAGER
-            else
+            // MANAGER
+            elseif(in_array('manager',$roles))
             {
                 $users = $users->clientusers();
+            }
+            // TEAM LEAD
+            else
+            {
+                $users = $users->supervisors();
             }
 
             return datatables($users)
@@ -47,6 +53,9 @@ class UserControllerAPI extends Controller
                 }))
                 ->editColumn('email', (function($value){
                     return strtolower($value->email);
+                }))
+                ->editColumn('supervisor_id', (function($value){
+                    return $value->thesupervisor ? $value->thesupervisor->full_name : '-';
                 }))
                 ->editColumn('theroles', (function($value){
                     $roles = [];

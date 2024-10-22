@@ -77,6 +77,7 @@ class UserController extends GlobalVariableController
                     'last_name'     => $request->last_name,
                     'email'     => $request->email,
                     'client_id' => $request->client_id,
+                    'supervisor_id' => $request->supervisor_id,
                     'password'  => $request->password,
                     'status'    => $request->status
                 ];
@@ -124,6 +125,7 @@ class UserController extends GlobalVariableController
                     'last_name'     => $request->last_name,
                     'email'     => $request->email,
                     'client_id' => $request->client_id,
+                    'supervisor_id' => $request->supervisor_id,
                     'status'    => $request->status
                 ], $request->edit_id);
             }
@@ -161,6 +163,7 @@ class UserController extends GlobalVariableController
                 'last_name'     =>  $data['last_name'],
                 'email'     => $data['email'],
                 'client_id' => $data['client_id'],
+                'supervisor_id' => $data['supervisor_id'],
                 'status'    => $data['status'],
             ];
 

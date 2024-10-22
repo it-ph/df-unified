@@ -15,6 +15,7 @@ class AddIndexesToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->index('client_id');
+            $table->index('supervisor_id');
             $table->index('first_name');
             $table->index('last_name');
             $table->index('status');
@@ -30,6 +31,7 @@ class AddIndexesToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropIndex(['client_id']);
+            $table->dropIndex('supervisor_id');
             $table->dropIndex(['first_name']);
             $table->dropIndex(['last_name']);
             $table->dropIndex(['status']);

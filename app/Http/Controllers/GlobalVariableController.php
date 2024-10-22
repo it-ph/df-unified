@@ -11,13 +11,23 @@ use Illuminate\Support\Facades\View;
 
 class GlobalVariableController extends Controller
 {
-    public $clients,$users,$request_slas,$request_types,$request_volumes,$tls,$oms;
+    public $clients,$supervisors,$users,$request_slas,$request_types,$request_volumes,$tls,$oms;
 
     public function __construct()
     {
         $this->clients = Client::query()
             ->select('id','name')
             ->orderBy('name', 'ASC')
+            ->get();
+
+        $this->supervisors = User::query()
+            ->whereHas('theroles', function ($query) {
+                $query->where('name', 'supervisor');
+                $query->orwhere('name', 'manager');
+            })
+            ->select('id','first_name','last_name','email','status')
+            ->where('status', 'active')
+            ->orderBy('email','asc')
             ->get();
 
         $this->users = User::query()
@@ -48,6 +58,7 @@ class GlobalVariableController extends Controller
             ->get();
 
         View::share('clients', $this->clients);
+        View::share('supervisors', $this->supervisors);
         View::share('users', $this->users);
         View::share('request_slas', $this->request_slas);
         View::share('request_types', $this->request_types);

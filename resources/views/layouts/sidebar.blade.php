@@ -16,7 +16,7 @@
                     </li>
 
                     {{-- ADMIN / TEAM LEAD / MANAGER --}}
-                    @if(in_array('admin',$user['roles']) || in_array('manager',$user['roles']) || in_array('team lead',$user['roles']))
+                    @if(in_array('admin',$user['roles']) || in_array('manager',$user['roles']) || in_array('supervisor',$user['roles']))
                         <li>
                             <a href="{{ url('job/create') }}" class="waves-effect">
                                 <i class="fa fa-plus-circle"></i>
@@ -53,7 +53,7 @@
                     @endif
 
                     {{-- ADMIN / TEAM LEAD / MANAGER --}}
-                    @if(in_array('admin',$user['roles']) || in_array('manager',$user['roles']) || in_array('team lead',$user['roles']))
+                    @if(in_array('admin',$user['roles']) || in_array('manager',$user['roles']) || in_array('supervisor',$user['roles']))
                         <li>
                             <a href="{{ url('jobs') }}" class="waves-effect">
                                 <i class="fa fa-database"></i>
@@ -90,7 +90,7 @@
                     @endif
 
                     {{-- ADMIN / TEAM LEAD / MANAGER --}}
-                    @if(in_array('admin',$user['roles']) || in_array('manager',$user['roles']) || in_array('team lead',$user['roles']))
+                    @if(in_array('admin',$user['roles']) || in_array('manager',$user['roles']) || in_array('supervisor',$user['roles']))
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fa fa-table"></i>

@@ -51,10 +51,19 @@
                                 </div>
                                 <div class="form-group row mb-2">
                                     <input type="hidden" name="edit_id" id="edit_id">
-                                    <label for="name" class="col-sm-2 col-form-label fw-bold">Task Name <strong><span class="important">*</span></strong></label>
+                                    <label for="name" class="col-sm-2 col-form-label fw-bold">Account Name <strong><span class="important">*</span></strong></label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Task Name">
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Account Name">
                                         <label id="nameError" class="error" style="display:none"></label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-2">
+                                    <input type="hidden" name="edit_id" id="edit_id">
+                                    <label for="number" class="col-sm-2 col-form-label fw-bold">Account Number <strong><span class="important">*</span></strong></label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="number" id="number" placeholder="Enter Account Number">
+                                        <label id="numberError" class="error" style="display:none"></label>
                                     </div>
                                 </div>
 
@@ -69,9 +78,9 @@
                                 <div class="form-group row mb-2">
                                     <label for="platform" class="col-sm-2 col-form-label fw-bold">Platform <strong><span class="important">*</span></strong></label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="platform" id="platform">
-                                            <option value=""disabled selected>-- Select Platform -- </option>
-                                            <option value="Duda" >Duda</option>
+                                        <select class="form-control select2" name="platform" id="platform">
+                                            {{-- <option value=""disabled selected>-- Select Platform -- </option> --}}
+                                            <option value="Duda" selected>Duda</option>
                                             <option value="Wordpress" >Wordpress</option>
                                         </select>
                                         <label id="platformError" class="error" style="display:none"></label>

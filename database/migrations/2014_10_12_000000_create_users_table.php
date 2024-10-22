@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('client_id')->nullable();
+            $table->integer('supervisor_id')->nullable();
             $table->string('status')->default('active');
             $table->string('password')->nullable();
             $table->string('two_factor_code')->nullable();

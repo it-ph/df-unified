@@ -52,6 +52,11 @@ class User extends Authenticatable
     {
         return $query->where('client_id',auth()->user()->client_id);
     }
+    
+    public function scopeSupervisors($query)
+    {
+        return $query->where('supervisor_id',auth()->user()->id);
+    }
 
     public function scopeDevelopers($query)
     {
@@ -91,6 +96,11 @@ class User extends Authenticatable
     public function theclient()
     {
         return $this->belongsTo(Client::class, 'client_id')->withTrashed();
+    }
+
+    public function thesupervisor()
+    {
+        return $this->belongsTo(User::class, 'supervisor_id')->withTrashed();
     }
 
     public function theroles()

@@ -40,6 +40,8 @@
                                 <th>Full Name</th>
                                 <th>Email Address</th>
                                 @if(in_array('admin',$user['roles']))<th>Client</th>@endif
+                                <th>Supervisor</th>
+                                <th>Supervisor</th>
                                 <th>Role</th>
                                 <th>Last Login Time</th>
                                 <th class="text-center">Status</th>

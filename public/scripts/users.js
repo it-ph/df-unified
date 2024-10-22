@@ -99,6 +99,8 @@ const USER = (() => {
                 { data: 'full_name', name: 'last_name', className: 'hide-column' },
                 { data: 'email', name: 'email' },
                 ...(isAdmin ? [{ data: 'client_id', name: 'theclient.name' }] : []),
+                { data: 'supervisor_id', name: 'thesupervisor.first_name' },
+                { data: 'supervisor_id', name: 'thesupervisor.last_name', className: 'hide-column' },
                 { data: 'theroles', name: 'theroles.name' },
                 { data: 'last_login_at', name: 'last_login_at' },
                 { data: 'status', name: 'status', className: 'text-center' },
@@ -142,6 +144,7 @@ const USER = (() => {
             $("#last_name").val(response.data.data.last_name);
             $("#email").val(response.data.data.email);
             $("#client_id").val(response.data.data.client_id).trigger("change");
+            $("#supervisor_id").val(response.data.data.supervisor_id).trigger("change");
             $("#status_").val(response.data.data.status).trigger("change");
             $('#btn_save').empty();
             $('#btn_save').append('<i class="fa fa-save"></i> Update');
@@ -348,6 +351,7 @@ const USER = (() => {
         $("#username").empty();
         $("#email").empty();
         $("#client_id").val(null).trigger("change");
+        $("#supervisor_id").val(null).trigger("change");
         $("#status_").val('active').trigger("change");
         $('.error').hide();
         $('.error').text('');

@@ -37,6 +37,7 @@ class UserStoreRequest extends FormRequest
             'last_name' => ['required'],
             'email' => ['required',Rule::unique('users')->ignore($this->edit_id)],
             'client_id' => in_array('admin', $user['roles']) ? ['required'] : 'nullable',
+            'supervisor_id' => in_array('supervisor', $user['roles']) ? ['required'] : 'nullable',
             'role-ctr' => ['required'],
         ];
     }
@@ -49,6 +50,7 @@ class UserStoreRequest extends FormRequest
             'email.required' => 'Email Address is required.',
             'email.unique' => 'Email Address is already exists.',
             'client_id.required' => 'Client is required.',
+            'supervisor_id.required' => 'Supervisor is required.',
             'role-ctr.required' => 'Select atleast 1 Role.',
         ];
     }

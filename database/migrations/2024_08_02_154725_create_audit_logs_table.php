@@ -26,18 +26,10 @@ class CreateAuditLogsTable extends Migration
             $table->string('time_taken')->nullable();
             $table->integer('qc_round')->nullable();
             $table->integer('auditor_id')->nullable();
-            $table->string('qc_status')->nullable();
-            $table->integer('for_rework')->nullable();
-            $table->integer('num_times')->nullable();
-            $table->integer('alignment_aesthetics')->nullable();
-            $table->longText('c_alignment_aesthetics')->nullable();
-            $table->integer('availability_formats')->nullable();
-            $table->longText('c_availability_formats')->nullable();
-            $table->integer('accuracy')->nullable();
-            $table->longText('c_accuracy')->nullable();
-            $table->integer('functionality')->nullable();
-            $table->longText('c_functionality')->nullable();
+            $table->string('qc_status')->nullable(); // Pass, NFE, Fail
+            $table->integer('for_rework')->nullable(); // if NFE or Fail then for_rework is set to 1
             $table->longText('qc_comments')->nullable();
+            $table->string('points')->nullable(); // per QC round
 
             // dates
             $table->datetime('start_at')->nullable();
